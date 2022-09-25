@@ -25,6 +25,7 @@ const IndexMenus = () => {
     "/",
     "/about",
     "/account",
+    "/testlab",
     "/publicchat",
     "/todolist"
   ];

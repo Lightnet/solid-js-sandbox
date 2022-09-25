@@ -8,10 +8,13 @@
 
 import { lazy } from 'solid-js';
 import { Router, Routes, Route } from '@solidjs/router';
-import ThemeProvider from "./theme/ThemeProvider";
-import IndexMenus from "./IndexMenus";
 
+import ThemeProvider from "./theme/ThemeProvider";
 import AuthProvider from "./auth/api/AuthProvider";
+import NotifyProvider from "./notify/NotifyProvider"
+import NotifyManager from './notify/NotifyManager';
+
+import IndexMenus from "./IndexMenus";
 
 const Home = lazy(() => import('../pages/index'))
 const About = lazy(() => import('../pages/about'))
@@ -55,9 +58,12 @@ export default function RenderApp(){
   //<div>This site was made with Solid</div>
   return (<>
   <ThemeProvider>
-    <AuthProvider>
-      <RouterApp/>
-    </AuthProvider>
+    <NotifyProvider>
+      <AuthProvider>
+        <RouterApp/>
+        <NotifyManager/>
+      </AuthProvider>
+    </NotifyProvider>
   </ThemeProvider>
 </>);
 };

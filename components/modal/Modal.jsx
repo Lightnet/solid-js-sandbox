@@ -19,7 +19,7 @@ import "./modal.css";
 
 function Modal(props){
 
-  const [isOpen, setIsOpen] = createSignal(props.isopen() || false);
+  const [isOpen, setIsOpen] = createSignal(props.isopen || false);
   const [enableDrag, setEnableDrag] = createSignal(props.enabledrag ||false);
   //setEnableDrag(true)
   const [offSet, setOffSet] = createSignal({x:0,y:0});
@@ -33,10 +33,10 @@ function Modal(props){
   let ref;
 
   createEffect(()=>{
-    //console.log(props.isopen())
+    console.log(props)
     //console.log(typeof props.isopen())
     //console.log(typeof props.isopen)
-    setIsOpen(props.isopen())
+    setIsOpen(props.isopen)
   })
 
   createEffect(()=>{
