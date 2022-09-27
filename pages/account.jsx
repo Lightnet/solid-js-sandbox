@@ -5,18 +5,18 @@
 */
 
 //import { createEffect } from 'solid-js'
-//import { supabase } from '../libs/supabaseclient.js';
-import Auth from '../components/auth/api/Auth.jsx';
-import Account  from '../components/auth/api/Account.jsx';
+import Account  from '../components/account/api/Account.jsx';
 import { useAuth } from '../components/auth/api/AuthProvider.jsx';
+import AuthAccess from '../components/auth/api/AuthAccess.jsx';
 
-export default function PageHome() {
+export default function PageAccount() {
 
-  const [session, {setSession}] = useAuth();
+  const [,{isLogin}] = useAuth();
 
-  return (
+  return (<AuthAccess>
     <div>
       <label>Account</label>
     </div>
-  )
+    <Account/>
+  </AuthAccess>)
 }

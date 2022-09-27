@@ -11,7 +11,7 @@ import {
 , useContext 
 } from "solid-js";
 
-import { supabase } from '../../libs/supabaseclient.js';
+import { supabase } from '../../../libs/supabase/supabaseclient.js'
 
 const AuthContext = createContext();
 

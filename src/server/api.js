@@ -4,9 +4,12 @@
   Created by: Lightnet
 */
 
-import {Router} from 'express'
+import { Router } from 'express'
+import auth from "./auth/mongoose/auth.js"
 
 const router = Router()
+
+router.use('/auth',auth)
 
 // define the home page route
 router.get('/echo', (req, res) => {

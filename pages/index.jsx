@@ -8,6 +8,7 @@
 //import { supabase } from '../libs/supabaseclient.js';
 //import Auth from '../components/auth/api/Auth.jsx';
 //import Account  from '../components/auth/api/Account.jsx';
+import Access from '../components/auth/api/AuthAccess.jsx';
 import { useAuth } from '../components/auth/api/AuthProvider.jsx';
 
 export default function PageHome() {
@@ -16,7 +17,9 @@ export default function PageHome() {
 
   return (
     <div>
-      <label>Home</label>
+      <Access>
+        <label>Home</label>
+      </Access>
     </div>
   )
 }

@@ -15,11 +15,15 @@ const __dirname = dirname(__filename);
 
 import { createServer as createViteServer } from 'vite'
 import routeAPI from  "./src/server/api.js"
+import { setupDatabase } from './libs/db/mongoose/database.js';
 //import * as vite from 'vite'
 
 console.log("script server.js")
 
 async function createServer() {
+
+  await setupDatabase();
+
   const app = express()
 
   // Create Vite server in middleware mode
@@ -30,6 +34,8 @@ async function createServer() {
   })
   // Use vite's connect instance as middleware
   app.use(vite.middlewares)
+
+  app.use(express.json());
 
   app.use('/api',routeAPI);
 

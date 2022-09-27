@@ -7,7 +7,7 @@
 // https://supabase.com/docs/guides/with-react
 
 import { createEffect, createSignal } from 'solid-js'
-import { supabase } from '../../libs/supabaseclient'
+import { supabase } from '../../../libs/supabase/supabaseclient.js'
 
 //export default function Avatar({ url, size, onUpload }) {//does not watch changes?
 export default function Avatar(props) {

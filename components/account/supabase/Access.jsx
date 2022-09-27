@@ -5,7 +5,7 @@
 */
 
 import { createEffect, createSignal } from 'solid-js'
-import { useAuth } from './AuthProvider.jsx';
+import { useAuth } from '../../auth/supabase/AuthProvider.jsx';
 
 export default function Access(props) {
   //const [session, setSession] = createSignal(null)

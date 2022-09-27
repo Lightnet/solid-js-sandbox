@@ -8,7 +8,7 @@
 
 //import { AuthSession } from '@supabase/supabase-js'
 import { createEffect, createSignal } from 'solid-js'
-import { supabase } from '../../libs/supabaseclient'
+import { supabase } from '../../../libs/supabase/supabaseclient.js'
 import Avatar from './Avatar'
 
 const Account = ({ session }) => {

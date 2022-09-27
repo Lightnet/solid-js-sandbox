@@ -1,44 +1,77 @@
 /*
-  Project Name: solid-js-sandbox
+  Project Name: vite-solid-surrealdb
   License: MIT
   Created by: Lightnet
 */
 
 import { 
-  createSignal
+  createContext
 , createEffect
-, createContext
-, useContext 
-} from "solid-js";
+, createSignal
+, useContext
+} from 'solid-js';
+import { jwtUser } from '../../../libs/clientapi';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
-export function useAuth() { return useContext(AuthContext); }
+export function useAuth(){return useContext(AuthContext);}
 
-export function AuthProvider(props) {
-  const [session, setSession] = createSignal(props.session || null),
-    value = [
-      session,
-      {
-        setSession: setSession,
-        assignSession(data) {
-          setSession(data);
-        },
-        clearSession() {
-          setSession(null);
-        }
+export default function AuthProvider(props){
+
+  const [session, setSession] = createSignal(props.session || null);
+  const [token, setToken] = createSignal(props.token || null);
+  const [clientDB, setClientDB] = createSignal(props.clientDB || null);
+  const [isLogin, setIsLogin] = createSignal(props.clientDB || null);
+  const [user, setUser] = createSignal('Guest');
+  const [userID, setUserID] = createSignal('');
+
+  const value = [
+    session,
+    {
+      user:user,
+      setUser:setUser,
+      userID:userID,
+      setUserID:setUserID,
+      isLogin:isLogin,
+      setIsLogin:setIsLogin,
+      token:token,
+      setToken:setToken,
+      clientDB:clientDB,
+      setClientDB:setClientDB,
+      setSession: setSession,
+      AssignSession(data) {
+        setSession(data);
+      },
+      clearSession() {
+        setSession(null);
       }
-    ];
-  //get data changes
-  createEffect(() => {
+    }
+  ];
 
+  //watch data
+  createEffect(() => {
+    //console.log(token())
+    let strToken = token();
+    try{
+      if(strToken){
+        let userData = jwtUser(strToken);
+        //console.log(userData)
+        setUser(userData.alias)
+        setUserID(userData.aliasID)
+        setIsLogin(true)
+      }else{
+        setIsLogin(false)
+        setUser('Guest')
+        setUserID('')
+      }
+    }catch(e){
+      setIsLogin(false)
+      setUser('Guest')
+      setUserID('')
+    }
   })
 
-  return (
-    <AuthContext.Provider value={value}>
-      {props.children}
-    </AuthContext.Provider>
-  );
+  return (<AuthContext.Provider value={value}>
+    {props.children}
+  </AuthContext.Provider>)
 }
-
-export default AuthProvider;
