@@ -28,17 +28,17 @@ export default function AuthProvider(props){
   const value = [
     session,
     {
-      user:user,
-      setUser:setUser,
-      userID:userID,
-      setUserID:setUserID,
-      isLogin:isLogin,
-      setIsLogin:setIsLogin,
-      token:token,
-      setToken:setToken,
-      clientDB:clientDB,
-      setClientDB:setClientDB,
-      setSession: setSession,
+      user,
+      setUser,
+      userID,
+      setUserID,
+      isLogin,
+      setIsLogin,
+      token,
+      setToken,
+      clientDB,
+      setClientDB,
+      setSession,
       AssignSession(data) {
         setSession(data);
       },

@@ -13,12 +13,12 @@ import { useAuth } from '../components/auth/api/AuthProvider.jsx';
 
 export default function PageHome() {
 
-  const [session, {setSession}] = useAuth();
+  const [session, {user,setSession}] = useAuth();
 
   return (
     <div>
       <Access>
-        <label>Home</label>
+        <label>Home, {user()}</label>
       </Access>
     </div>
   )

@@ -60,17 +60,16 @@ export function verifyToken(_token, _secret){
     //const header = Base64urlToJson(token[0])
     const payload = Base64urlToJson(token[1])
     const signature = token[2]
-    console.log(signature)
-    console.log(payload)
-
+    //console.log(signature)
+    //console.log(payload)
     let signature0 = crypto.createHmac('sha256', _secret);
     signature0.update (token[0] + '.' + token[1]);
     signature0 = signature0.digest('base64url');
     if(signature0 === signature){
-      console.log("MATCH")
+      //console.log("MATCH")
       return payload;
     }else{
-      console.log("NO MATCH")
+      //console.log("NO MATCH")
       return null;
     } 
   } catch (error) {

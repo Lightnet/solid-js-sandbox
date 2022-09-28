@@ -12,10 +12,21 @@
 - express
 
 # Features:
-- to do list
-- blog / post
-- account simple
-- Test Lab
+- [ ] To do list
+- [ ] Blog / post
+- [ ] Account simple
+ - [ ] Sign Up
+ - [ ] Sign In
+ - [ ] Sign Out
+ - [ ] Recovery
+ - [ ] Change Passphrase
+ - [ ] Change Alias
+ - [ ] Change Email
+
+- [ ] Test Lab
+ - [ ] Modal
+ - [ ] Notify
+ - [ ] Theme light / dark
 
 # Information:
   To develop UI and reusable components.

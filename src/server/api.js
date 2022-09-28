@@ -5,11 +5,13 @@
 */
 
 import { Router } from 'express'
-import auth from "./auth/mongoose/auth.js"
+import auth from "./mongoose/auth/auth.js"
+import todolist from "./mongoose/todolist/todolist.js"
 
 const router = Router()
 
 router.use('/auth',auth)
+router.use('/todolist',todolist)
 
 // define the home page route
 router.get('/echo', (req, res) => {

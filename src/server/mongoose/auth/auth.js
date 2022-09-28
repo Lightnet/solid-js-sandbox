@@ -1,5 +1,5 @@
 /*
-  Project Name: vite-solid-surrealdb
+  Project Name: vite-solid-sandbox
   License: MIT
   Created by: Lightnet
 */
