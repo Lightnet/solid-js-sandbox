@@ -1,5 +1,8 @@
-
-
+/*
+  Project Name: solid-js-sandbox
+  License: MIT
+  Created by: Lightnet
+*/
 
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';

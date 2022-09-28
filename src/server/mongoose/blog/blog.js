@@ -6,8 +6,9 @@
 
 import { Router } from 'express';
 import cookie from 'cookie';
-import ToDoListModel from '../../../../libs/db/mongoose/todolist.js';
-import { v4 as uuidv4 } from 'uuid';
+//import ToDoListModel from '../../../../libs/db/mongoose/todolist.js';
+import BlogModel from '../../../../libs/db/mongoose/blog.js';
+//import { v4 as uuidv4 } from 'uuid';
 import { verifyToken } from '../../../../libs/serverapi.js';
 
 import { config } from 'dotenv';
@@ -26,9 +27,8 @@ router.get('/list', async (req, res) => {
       const userData = verifyToken(cookies.token, SECRET);
       console.log(userData)
 
-
-      const tasks = await ToDoListModel.find({aliasID:userData.aliasID});
-      return res.send(JSON.stringify({api:'TASKS',tasks:tasks}))
+      const blogs = await BlogModel.find({});
+      return res.send(JSON.stringify({api:'BLOGS',blogs:blogs}))
     }
   } catch (error) {
     console.log(error)
@@ -43,25 +43,24 @@ router.post('/add', async (req, res) => {
   const { content } = req.body;
   try{
     var cookies = cookie.parse(req.headers.cookie || '');
-    console.log(cookies)
+    //console.log(cookies)
     if(cookies?.token){
-      //ToDoListModel
       const userData = verifyToken(cookies.token, SECRET);
       console.log(userData)
 
-      const newTask = new ToDoListModel({
+      const newBlog = new BlogModel({
         aliasID:userData.aliasID,
         content:content
       })
 
-      newTask.save(function (err) {
+      newBlog.save(function (err) {
         if (err) return handleError(err);
         console.log("save!")
         // saved!
       });
 
-      console.log(newTask.toJSON());
-      return res.send(JSON.stringify({api:'CREATED',task:newTask.toJSON()}))
+      console.log(newBlog.toJSON());
+      return res.send(JSON.stringify({api:'CREATED',blog:newBlog.toJSON()}))
     }else{
       console.log("NULL Token")
     }
@@ -79,19 +78,18 @@ router.put('/update', async (req, res) => {
     var cookies = cookie.parse(req.headers.cookie || '');
     console.log(cookies)
     if(cookies?.token){
-      //ToDoListModel
       const userData = verifyToken(cookies.token, SECRET);
       console.log(userData)
 
-      const updateTask = await ToDoListModel.findOne({
+      const updateBlog = await BlogModel.findOne({
         id:id
       })
-      updateTask.content = content;
+      updateBlog.content = content;
 
-      await updateTask.save(); 
+      await updateBlog.save(); 
 
-      console.log(updateTask.toJSON());
-      return res.send(JSON.stringify({api:'UPDATE',task:updateTask.toJSON()}))
+      console.log(updateBlog.toJSON());
+      return res.send(JSON.stringify({api:'UPDATE',blog:updateBlog.toJSON()}))
     }else{
       console.log("NULL Token")
     }
@@ -109,14 +107,13 @@ router.delete('/delete', async (req, res) => {
     var cookies = cookie.parse(req.headers.cookie || '');
     //console.log(cookies)
     if(cookies?.token){
-      //ToDoListModel
       
       const userData = verifyToken(cookies.token, SECRET);
       console.log(userData)
-      const deleteTask = await ToDoListModel.deleteOne({
+      const deleteBlog = await BlogModel.deleteOne({
         id
       });
-      console.log(deleteTask)
+      console.log(deleteBlog)
       return res.send(JSON.stringify({api:'DELETE'}))
     }else{
       console.log("NULL Token")

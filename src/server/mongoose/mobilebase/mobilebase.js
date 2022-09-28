@@ -1,12 +1,12 @@
 /*
-  Project Name: vite-solid-sandbox
+  Project Name: solid-js-sandbox
   License: MIT
   Created by: Lightnet
 */
 
 import { Router } from 'express';
 
-import { v4 as uuidv4 } from 'uuid';
+//import { v4 as uuidv4 } from 'uuid';
 
 //import { config } from 'dotenv';
 //config();
