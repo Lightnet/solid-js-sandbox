@@ -5,6 +5,7 @@
 */
 
 import { createEffect, createSignal } from 'solid-js'
+import TextQuill from '../components/texteditor/TextQuill';
 
 export default function PageBlog() {
 
@@ -115,6 +116,7 @@ export default function PageBlog() {
   return (<div>
       <label>Blog</label>
       <div>
+        <TextQuill/>
         <input value={newContent()} onInput={(e)=>setNewContent(e.target.value)} />
         <button onClick={addBlog}>Create</button>
         <label>{errorText()}</label>

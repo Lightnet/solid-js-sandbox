@@ -55,12 +55,50 @@ export default function SignIn() {
 
   return (
     <div>
-      <label>Sign In</label><br/>
-      <label> Alias: </label><input value={alias()} onInput={(e)=>setAlias(e.target.value)}/><br/>
-      <label> E-Mail: </label><input value={email()} onInput={(e)=>setEmail(e.target.value)}/><br/>
-      <label> Passphrase: </label><input value={passphrase()} onInput={(e)=>setPassphrase(e.target.value)} /><br/>
-      <button onClick={btnSignUp}> Sign Up </button>
-      <button onClick={btnLogin}> Login </button>
+      
+      
+      <table>
+        <tbody>
+          <thead>
+            <tr>
+              <td colSpan="">
+                <label>Sign In</label>
+              </td>
+            </tr>
+          </thead>
+          <tr>
+            <td>
+              <label> Alias: </label>
+            </td>
+            <td>
+            <input value={alias()} onInput={(e)=>setAlias(e.target.value)}/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <label> E-Mail: </label>
+            </td>
+            <td>
+            <input value={email()} onInput={(e)=>setEmail(e.target.value)}/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <label> Passphrase: </label>
+            </td>
+            <td>
+            <input value={passphrase()} onInput={(e)=>setPassphrase(e.target.value)} />
+            </td>
+          </tr>
+          <tr>
+            <td colSpan="2">
+              <button onClick={btnSignUp}> Sign Up </button>
+              <button onClick={btnLogin}> Login </button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
     </div>
   )
 }
