@@ -4,13 +4,7 @@
   Created by: Lightnet
 */
 
-import { 
-  createContext
-, createEffect
-, createSignal
-, useContext
-} from 'solid-js';
-
+import { createSignal} from 'solid-js';
 import { useAuth } from './AuthProvider';
 import SignIn from "./SignIn.jsx";
 

@@ -31,6 +31,7 @@ const IndexMenus = () => {
     "/signout",
     "/testlab",
     "/publicchat",
+    "/mobilebase",
     "/todolist"
   ];
 
@@ -52,6 +53,7 @@ const IndexMenus = () => {
         <Link class="btnLink" href="/testlab">Test Lab</Link><span> | </span>
         <Link class="btnLink" href="/publicchat">Chat</Link><span> | </span>
         <Link class="btnLink" href="/todolist">To Do List</Link><span> | </span>
+        <Link class="btnLink" href="/mobilebase">Mobile Base</Link><span> | </span>
         <ToggleTheme />
         </div>)
     }else{

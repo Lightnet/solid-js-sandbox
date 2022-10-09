@@ -114,29 +114,28 @@ export default function PageBlog() {
   fetchBlogs();
 
   return (<div>
-      <label>Blog</label>
-      <div>
-        <TextQuill/>
-        <input value={newContent()} onInput={(e)=>setNewContent(e.target.value)} />
-        <button onClick={addBlog}>Create</button>
-        <label>{errorText()}</label>
-      </div>
-      <div>
-        <For each={blogs()} fallback={<div>Loading...</div>}>
-        {(item, index) => (
-          <div id={index()}>
-            {blogID()==item.id?(<>
-              <input value={item.content} onInput={(e)=>setEditContent(e.target.value)}/>
-              <button onClick={()=>updateBlog()}> Update </button>
-            </>):(<>
-              <label > Item: {item.content} </label>
-              <button onClick={()=>setBlogID(item.id)}> Edit </button>
-              <button onClick={()=>deleteBlog(item.id)}> Del </button>
-            </>)}
-          </div>
-        )}
-        </For>
-      </div>
+    <label>Blog</label>
+    <div>
+      <TextQuill/>
+      <input value={newContent()} onInput={(e)=>setNewContent(e.target.value)} />
+      <button onClick={addBlog}>Create</button>
+      <label>{errorText()}</label>
     </div>
-  )
+    <div>
+      <For each={blogs()} fallback={<div>Loading...</div>}>
+      {(item, index) => (
+        <div id={index()}>
+          {blogID()==item.id?(<>
+            <input value={item.content} onInput={(e)=>setEditContent(e.target.value)}/>
+            <button onClick={()=>updateBlog()}> Update </button>
+          </>):(<>
+            <label > Item: {item.content} </label>
+            <button onClick={()=>setBlogID(item.id)}> Edit </button>
+            <button onClick={()=>deleteBlog(item.id)}> Del </button>
+          </>)}
+        </div>
+      )}
+      </For>
+    </div>
+  </div>)
 }

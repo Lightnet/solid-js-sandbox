@@ -53,19 +53,16 @@ export default function SignIn() {
     navigate("/signup", { replace: true })
   }
 
-  return (
-    <div>
-      
-      
-      <table>
-        <tbody>
-          <thead>
+  return (<div>  
+    <table>
+      <thead>
             <tr>
               <td colSpan="">
                 <label>Sign In</label>
               </td>
             </tr>
           </thead>
+        <tbody>
           <tr>
             <td>
               <label> Alias: </label>
@@ -93,12 +90,13 @@ export default function SignIn() {
           <tr>
             <td colSpan="2">
               <button onClick={btnSignUp}> Sign Up </button>
-              <button onClick={btnLogin}> Login </button>
+              <span style="float:right;">
+                
+                <button onClick={btnLogin}> Login </button>
+              </span>
             </td>
           </tr>
-
         </tbody>
       </table>
-    </div>
-  )
+  </div>)
 }

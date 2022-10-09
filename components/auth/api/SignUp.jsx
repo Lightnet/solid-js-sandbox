@@ -38,14 +38,53 @@ export default function SignUp() {
     console.log(data)
   }
 
-  return (
-    <div>
-      <label>Sign Up</label><br/>
-      <label> Alias: </label><input value={alias()} onInput={(e)=>setAlias(e.target.value)}/><br/>
-      <label> E-mail: </label><input value={email()} onInput={(e)=>setEmail(e.target.value)}/><br/>
-      <label> Passphrase: </label><input value={passphrase()} onInput={(e)=>setPassphrase(e.target.value)} /><br/>
-      <button onClick={btnSignUp}> Sign Up </button>
-      <button onClick={btnCancel}> Cancel </button>
-    </div>
-  )
+  return (<div>
+    <table>
+      <thead>
+            <tr>
+              <td colSpan="">
+                <label>Sign In</label>
+              </td>
+            </tr>
+          </thead>
+        <tbody>
+          <tr>
+            <td>
+              <label> Alias: </label>
+            </td>
+            <td>
+            <input value={alias()} onInput={(e)=>setAlias(e.target.value)}/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <label> E-Mail: </label>
+            </td>
+            <td>
+            <input value={email()} onInput={(e)=>setEmail(e.target.value)}/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+            <label> Passphrase: </label>
+            </td>
+            <td>
+            <input value={passphrase()} onInput={(e)=>setPassphrase(e.target.value)} />
+            </td>
+          </tr>
+          <tr>
+            <td colSpan="2">
+              <span style="float:right;">
+                <button onClick={btnSignUp}> Register </button>
+                <button onClick={btnCancel}> Cancel </button>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>  
+    </div>)
 }
+/*
+<button onClick={btnSignUp}> Sign Up </button>
+      <button onClick={btnCancel}> Cancel </button>
+*/

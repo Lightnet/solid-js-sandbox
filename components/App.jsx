@@ -32,6 +32,7 @@ const ToDoList = lazy(() => import('../pages/todolist'))
 //const SurrealDB = lazy(() => import('./pages/surrealdb'))
 const Account = lazy(() => import('../pages/account'))
 const Blog = lazy(() => import('../pages/blog'))
+const PageMobileBase = lazy(() => import('../pages/mobilebase'))
 
 //const HelloApp = () => {
 //  return (<label></label>)
@@ -55,6 +56,7 @@ const RouterApp = () => {
       <Route path="/signin" component={SignIn}/>
       <Route path="/signup" component={SignUp}/>
       <Route path="/signout" component={SignOut}/>
+      <Route path="/mobilebase" component={PageMobileBase}/>
     </Routes>
   </Router>);
 };

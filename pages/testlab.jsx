@@ -15,11 +15,11 @@ import NotifyTest from "../components/notify/NotifyTest"
 
 export default function PageTestLab() {
 
-  return (
+  return (<>
     <div>
       <label> Test Lab </label>
       <NotifyTest />
       <ModalTest/>
     </div>
-  )
+  </>)
 }
