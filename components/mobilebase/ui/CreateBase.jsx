@@ -12,6 +12,12 @@ export default function CreateBase(props){
 
   const [name, setName] = createSignal('');
 
+  function onChange(_data){
+    if(typeof props?.onChange==='function'){
+      props.onChange(_data)
+    }
+  }
+
   async function btnCreate(){
     useAxois({
       url:'/api/mobilebase/home',
@@ -20,42 +26,23 @@ export default function CreateBase(props){
         name:name()
       }
     }).then(resp=>{
-      console.log(resp.data)
+      //console.log(resp.data)
+      if(resp.data?.api !==null){
+        if(resp.data.api=='EMPTY'){
+          console.log("HomeBase Name EMPTY!")
+        }
+
+        if(resp.data.api=='EXIST'){
+          console.log("HomeBase Name Exist!")
+        }
+
+        if(resp.data.api=='HOMEBASE'){
+          onChange(resp.data.homebase)
+        }
+      }
     }).catch(e=>{
       console.log(e)
     })
-    
-    /*
-    try{
-      let data = await useFetch('/api/mobilebase/home',{
-        method:'POST',
-        body:JSON.stringify({
-          name:name()
-        })
-      })
-      console.log(data)
-    }catch(e){
-      console.log(e)
-    }
-    */
-
-    /*
-    try{
-      let resp = await fetch('/api/mobilebase/home',{
-        method:'POST',
-        headers:{
-          'Content-Type':'application/json'
-        },
-        body:JSON.stringify({
-          name:name()
-        })
-      })
-      let data = await resp.json();
-      console.log(data)
-    }catch(e){
-      console.log(e)
-    }
-    */
   }
 
   return (<>

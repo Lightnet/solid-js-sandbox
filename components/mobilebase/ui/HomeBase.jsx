@@ -4,8 +4,12 @@
   Created by: Lightnet
 */
 
-export default function OutPost(){
+import { useMobileBase } from "../MobileBaseProvider";
+
+export default function HomeBase(){
+  const { baseInfo, baseName } = useMobileBase();
+  //console.log(baseInfo())
   return (<>
-    <label>OutPost</label>
+    <label>Base Name: {baseName()}</label>
   </>)
 }

@@ -11,20 +11,26 @@ import { v4 as uuidv4 } from 'uuid';
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
-const HomeBaseSchema = new Schema({
+const BuildingSchema = new Schema({
   id: { type: String, default: uuidv4, unique: true },
   aliasID: { type: String, default: uuidv4, unique: true },
   alias: String,
   name: String,
-  mapname: { type: String, default: 'noob' },
-  mapid: { type: String, default: uuidv4 },
+  level: { type: Number, default: 0 },
+  status: { type: String, default: 'contruct' },
+  time: { type: Number, default: 300 },
+  producetime: { type: Number, default: 300 },
+  res: { type: String, default: 'ore' },
+  produce: { type: Number, default: 10 },
+  stock: { type: Number, default:  0 },
+  cap: { type: Number, default:  1000 },
+  baseid: { type: String, default: uuidv4 },
   x:{ type: Number, default: 0 },
   y:{ type: Number, default: 0 },
   z:{ type: Number, default: 0 },
-  region:{ type: String, default: 'noob' },
   date: { type: Date, default: Date.now }
 });
 
 // Compile model from schema
-const HomeBaseModel = mongoose.model("HomeBase", HomeBaseSchema);
-export default HomeBaseModel;
+const BuildingModel = mongoose.model("Building", BuildingSchema);
+export default BuildingModel;

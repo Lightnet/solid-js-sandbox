@@ -12,30 +12,62 @@
 
 
 import { createEffect, createMemo, createSignal } from 'solid-js';
+import useAxois from '../use/useAxois';
+import { useMobileBase } from './MobileBaseProvider';
 import CreateBase from './ui/CreateBase';
+import HomeBase from './ui/HomeBase';
 
-export default function PageMobileBase(){
+export default function PageMobileBase(props){
 
   const [isBase, setIsBase] = createSignal(false)
   const [isLoading, setIsLoading] = createSignal(true)
+  const [error, setError] = createSignal(null)
+  const { setBaseInfo } = useMobileBase();
+
+  function onChange(_data){
+    if(_data){
+      //console.log("PageMobileBase onChange:", _data);
+      setBaseInfo(_data);
+      setIsBase(true);
+    }
+  }
 
   async function getBase(){
-    let resp = await fetch('/api/mobilebase/home')
-    let data = await resp.json()
-    console.log(data)
-    if(data?.api !=null){
-      if(data.api=='NOBASE'){
-        setIsBase(false);
+    try{
+      useAxois({
+        url:'/api/mobilebase/home',
+        method:'GET'
+      }).then(resp=>{
+        console.log(resp.data)
+        if(resp.data?.api!=null){
+          if(resp.data.api=='NOBASE'){
+            setError(null)
+            setIsBase(false);
+            setIsLoading(false)
+          }
+          if(resp.data.api=='HOMEBASE'){
+            setError(null)
+            onChange(resp.data.homebase)
+            setIsLoading(false)
+            
+          }
+          if(resp.data.api=='ERROR'){
+            setError('Error Server!')
+            setIsLoading(false)
+          }
+        }else{
+          setError('Error Server!')
+          setIsLoading(false)
+        }
+      }).catch(e=>{
+        console.log(e)
+        setError('Error Server!')
         setIsLoading(false)
-      }
-      if(data.api=='HOMEBASE'){
-        setIsBase(true);
-        setIsLoading(false)
-      }
-      if(data.api=='ERROR'){
-
-        setIsLoading(false)
-      }
+      })
+      
+    }catch(e){
+      console.log(e)
+      setIsLoading(false)
     }
   }
 
@@ -43,10 +75,10 @@ export default function PageMobileBase(){
 
   const checkingBase = createMemo(()=>{
     if(isBase()){
-      return (<label> Hello </label>)
+      return (<HomeBase></HomeBase>)
     }else{
       //return (<label> Hello </label>)
-      return (<CreateBase />)
+      return (<CreateBase onChange={onChange} />)
     }
   });
 

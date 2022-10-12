@@ -11,6 +11,13 @@
 - solid-js
 - express
 
+# Information:
+  To develop UI and reusable components.
+
+  Sandbox Testing.
+
+  Basic Account Access.
+
 # Features:
 - [x] To do list
   - [x] add
@@ -34,13 +41,6 @@
   - [x] Modal
   - [x] Notify
   - [x] Theme light / dark
-
-# Information:
-  To develop UI and reusable components.
-
-  Sandbox Testing.
-
-  Basic Account Access.
 
 # Database:
   Testing prototypes.

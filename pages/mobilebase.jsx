@@ -6,10 +6,13 @@
 
 //import { createEffect, createSignal } from 'solid-js'
 import Access from '../components/auth/api/AuthAccess.jsx'; 
+import MobileBaseProvider from '../components/mobilebase/MobileBaseProvider.jsx';
 import PageMobileBase from '../components/mobilebase/PageMobileBase.jsx';
 export default function PageGame() {
   
   return (<Access>
-    <PageMobileBase/>
+    <MobileBaseProvider>
+      <PageMobileBase/>
+    </MobileBaseProvider>
   </Access>)
 }
