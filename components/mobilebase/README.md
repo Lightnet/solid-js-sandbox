@@ -10,3 +10,6 @@
   - ship battle
   - auto battle ?
   - 
+
+# layout:
+  Module UI layout using the drag and drop grid system design idea.

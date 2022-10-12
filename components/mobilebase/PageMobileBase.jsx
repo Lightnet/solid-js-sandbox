@@ -15,7 +15,9 @@ import { createEffect, createMemo, createSignal } from 'solid-js';
 import useAxois from '../use/useAxois';
 import { useMobileBase } from './MobileBaseProvider';
 import CreateBase from './ui/CreateBase';
-import HomeBase from './ui/HomeBase';
+//import GridView from './ui/GridView';
+//import HomeBase from './ui/HomeBase';
+import MIPanelView from './ui/MIPanelView';
 
 export default function PageMobileBase(props){
 
@@ -75,7 +77,7 @@ export default function PageMobileBase(props){
 
   const checkingBase = createMemo(()=>{
     if(isBase()){
-      return (<HomeBase></HomeBase>)
+      return (<MIPanelView></MIPanelView>)
     }else{
       //return (<label> Hello </label>)
       return (<CreateBase onChange={onChange} />)
