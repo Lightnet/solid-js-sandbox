@@ -15,6 +15,10 @@
 // https://www.telerik.com/blogs/json-web-token-jwt-implementation-using-nodejs
 
 import crypto from 'crypto'
+import Cookie from 'cookie'
+import { config } from 'dotenv';
+config();
+const SECRET = process.env.SECRET || "TEST0123456789012345678901";
 
 //const jwt_header = { "alg": "HS256", "typ": "JWT" }
 //const payload = { "username": "user1", "exp": 1547974082 };
@@ -75,6 +79,23 @@ export function verifyToken(_token, _secret){
     } 
   } catch (error) {
     console.log(error)
+    return null;
+  }
+}
+
+
+export function getTokenUser(req){
+  try{
+    let cookies = Cookie.parse(req.headers.cookie || '');
+    //console.log(cookies)
+    let token = cookies.token;
+    if(!token){return null;}
+    token = verifyToken(token, SECRET);
+    //console.log(token)
+    return token;
+
+  }catch(e){
+    console.log(e)
     return null;
   }
 }
