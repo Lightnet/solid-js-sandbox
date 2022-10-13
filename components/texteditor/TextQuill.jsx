@@ -5,6 +5,7 @@
 */
 
 import { createEffect, createSignal, onMount } from 'solid-js'
+
 import Quill from 'quill';
 //import 'https://cdn.quilljs.com/1.3.6/quill.core.css';
 //import 'https://cdn.quilljs.com/1.3.6/quill.snow.css';
@@ -17,7 +18,7 @@ export default function TextQuill(){
     if(textEditor()==null){
       //var quill = new Quill('#'+editorID(), {});
       const editorEL = document.getElementById(editorID())
-      var quill = new Quill(editorELaW, {
+      var quill = new Quill(editorEL, {
         modules: {
           //toolbar: false    // Snow includes toolbar by default
         },
