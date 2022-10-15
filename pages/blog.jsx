@@ -4,17 +4,19 @@
   Created by: Lightnet
 */
 
-import { createEffect, createSignal } from 'solid-js'
+import { createEffect, createSignal, Show } from 'solid-js'
 import TextEditorJS from '../components/texteditor/TextEditorJS';
 //import TextQuill from '../components/texteditor/TextQuill';
 
 export default function PageBlog() {
 
   const [blogs, setBlogs] = createSignal([]);
-  const [newContent, setNewContent] = createSignal("");
+  const [newContent, setNewContent] = createSignal(null);
   const [blogID, setBlogID] = createSignal("");
   const [editContent, setEditContent] = createSignal("");
   const [errorText, setError] = createSignal("");
+
+  const [showCreateBlog, setShowCreateBlog] = createSignal(false);
 
   const fetchBlogs = async () => {
     try{
@@ -114,13 +116,53 @@ export default function PageBlog() {
 
   fetchBlogs();
 
+  function onChangeBlogPost(data){
+    //console.log(data)
+    setNewContent(data)
+  }
+
+  async function btnPostBlog(){
+    console.log("Hello?")
+    try{
+      
+      let textContent = JSON.stringify(newContent());
+      console.log("Teest")
+      let resp = await fetch('/api/blog/add',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify({
+          content:textContent
+        })
+      })
+      let data = await resp.json()
+      console.log(data)
+      if(data.api!==null && data.api =='CREATED'){
+        let item = data.blog;
+        setBlogs(state=>[...state, item])
+      }
+      
+      //setError("");
+      //setNewTask("")
+    }catch(e){
+      console.log(e);
+    }
+  }
+
+  function btnCreateBlog(){
+    setShowCreateBlog(true)
+  }
+
+  function btnCloseBlog(){
+    setShowCreateBlog(false)
+  }
+
+  // <input value={newContent()} onInput={(e)=>setNewContent(e.target.value)} />
   return (<div>
     <label>Blog</label>
     <div>
-      <TextEditorJS/>
-      <input value={newContent()} onInput={(e)=>setNewContent(e.target.value)} />
-      <button onClick={addBlog}>Create</button>
-      <label>{errorText()}</label>
+      <button onClick={btnCreateBlog}> Create Post </button>
     </div>
     <div>
       <For each={blogs()} fallback={<div>Empty!</div>}>
@@ -130,7 +172,7 @@ export default function PageBlog() {
             <input value={item.content} onInput={(e)=>setEditContent(e.target.value)}/>
             <button onClick={()=>updateBlog()}> Update </button>
           </>):(<>
-            <label > Item: {item.content} </label>
+            <TextEditorJS value={item.content} readOnly/>
             <button onClick={()=>setBlogID(item.id)}> Edit </button>
             <button onClick={()=>deleteBlog(item.id)}> Del </button>
           </>)}
@@ -138,5 +180,13 @@ export default function PageBlog() {
       )}
       </For>
     </div>
+    <Show when={showCreateBlog()}>
+      <div style="position:fixed; float:right; top:32px;left:20px;z-index:1;">
+        <TextEditorJS onChange={onChangeBlogPost}/>
+        <button onClick={btnPostBlog}>Create Blog</button>
+        <button onClick={btnCloseBlog}>Close</button>
+        <label>{errorText()}</label>
+      </div>
+    </Show>
   </div>)
 }
