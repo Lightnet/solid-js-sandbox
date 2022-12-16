@@ -32,7 +32,9 @@ const IndexMenus = () => {
     "/testlab",
     "/publicchat",
     "/mobilebase",
-    "/todolist"
+    "/todolist",
+    "/uicss",
+    "/threecss"
   ];
 
   const displayMenu = createMemo(()=>{
@@ -54,6 +56,8 @@ const IndexMenus = () => {
         <Link class="btnLink" href="/publicchat">Chat</Link><span> | </span>
         <Link class="btnLink" href="/todolist">To Do List</Link><span> | </span>
         <Link class="btnLink" href="/mobilebase">Mobile Base</Link><span> | </span>
+        <Link class="btnLink" href="/threecss">threecss</Link><span> | </span>
+        <Link class="btnLink" href="/uicss">uicss</Link><span> | </span>
         <ToggleTheme />
         </div>)
     }else{

@@ -5,13 +5,18 @@
 */
 
 import { useMobileBase } from "../MobileBaseProvider";
+import BuildExtractor from "./buildings/BuildExtractor";
 
-export default function HomeBase(){
+export default function BaseConstruction(){
   const { baseInfo, baseName } = useMobileBase();
   //console.log(baseInfo())
-
   return (<>
-    <label>Base Name: {baseName()}</label>
-
+    <label>Base Construction:</label>
+    <div>
+      <BuildExtractor/>
+    </div>    
   </>)
 }
+/*
+
+*/

@@ -8,9 +8,12 @@ import { Router } from 'express';
 import { getTokenUser } from '../../../../libs/serverapi.js';
 import HomeBaseModel from '../../../../libs/db/mongoose/homebase.js';
 
+import construction from "./construction.js"
+import building from "./building.js"
+
 //import { v4 as uuidv4 } from 'uuid';
-import { config } from 'dotenv';
-config();
+//import { config } from 'dotenv';
+//config();
 
 const router = Router()
 
@@ -77,5 +80,8 @@ router.post('/home', async (req, res) => {
 
   res.send(JSON.stringify({api:'ERROR'}))
 });
+
+router.use('/construction',construction)
+router.use('/building',building)
 
 export default router;

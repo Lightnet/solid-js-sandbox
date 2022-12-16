@@ -13,7 +13,7 @@ const ObjectId = Schema.ObjectId;
 
 const BuildingSchema = new Schema({
   id: { type: String, default: uuidv4, unique: true },
-  aliasID: { type: String, default: uuidv4, unique: true },
+  aliasID: { type: String, default: uuidv4, unique: false },
   alias: String,
   name: String,
   level: { type: Number, default: 0 },

@@ -33,6 +33,9 @@ const ToDoList = lazy(() => import('../pages/todolist'))
 const Account = lazy(() => import('../pages/account'))
 const Blog = lazy(() => import('../pages/blog'))
 const PageMobileBase = lazy(() => import('../pages/mobilebase'))
+const PageThreejs = lazy(() => import('../pages/threejs'))
+const PageThreeCSS = lazy(() => import('../pages/threecss'))
+const PageUICSS = lazy(() => import('../pages/uicss'))
 
 //const HelloApp = () => {
 //  return (<label></label>)
@@ -57,6 +60,9 @@ const RouterApp = () => {
       <Route path="/signup" component={SignUp}/>
       <Route path="/signout" component={SignOut}/>
       <Route path="/mobilebase" component={PageMobileBase}/>
+      <Route path="/threejs" component={PageThreejs}/>
+      <Route path="/threecss" component={PageThreeCSS}/>
+      <Route path="/uicss" component={PageUICSS}/>
     </Routes>
   </Router>);
 };

@@ -5,7 +5,7 @@
 */
 
 import Surreal from 'surrealdb.js'
-import {Router} from 'express'
+import { Router } from 'express'
 import { getDB } from '../../../../libs/db/surrealdb/database.js'
 import { isEmpty } from '../../../../libs/helper.js'
 

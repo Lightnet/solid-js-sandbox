@@ -50,4 +50,5 @@
 VITE_SUPABASE_URL=https://xxxxxx.supabase.co
 VITE_SUPABASE_ANON_KEY=xxxx.xxxx.xxxx
 SECRET="01234567890123456789012345678901"
+DATABASE_URL=mongodb://localhost/solidtest
 ```

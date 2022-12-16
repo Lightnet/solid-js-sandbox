@@ -16,9 +16,9 @@ import { createEffect, createSignal, onMount } from 'solid-js'
 
 import EditorJS from '@editorjs/editorjs';
 import Table from '@editorjs/table';
-import LinkTool from'@editorjs/link';
+//import LinkTool from'@editorjs/link';
 import Embed from '@editorjs/embed';
-import ImageTool from '@editorjs/image';
+//import ImageTool from '@editorjs/image';
 import Underline from '@editorjs/underline';
 import RawTool from '@editorjs/raw';
 import Checklist from '@editorjs/checklist';
@@ -28,7 +28,6 @@ import Quote from '@editorjs/quote';
 import InlineCode from '@editorjs/inline-code';
 import Warning from '@editorjs/warning';
 import Marker from '@editorjs/marker';
-
 
 export default function TextEditorJS(props){
 

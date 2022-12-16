@@ -6,6 +6,12 @@
 
 import mongoose from 'mongoose';
 
+import { config } from 'dotenv';
+config();
+
+const DATABASE_URL = process.env.DATABASE_URL || 'mongodb://localhost/test';
+console.log(DATABASE_URL)
+
 function mainTest(){
   
   const Schema = mongoose.Schema;
@@ -30,7 +36,7 @@ function mainTest(){
 }
 
 export async function setupDatabase(){
-  await mongoose.connect('mongodb://localhost/stest');
+  await mongoose.connect(DATABASE_URL);
   //mainTest()
   /*
   const MyModel = mongoose.model('BlogPost');
