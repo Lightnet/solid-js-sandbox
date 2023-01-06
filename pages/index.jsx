@@ -10,6 +10,7 @@
 //import Account  from '../components/auth/api/Account.jsx';
 import Access from '../components/auth/api/AuthAccess.jsx';
 import { useAuth } from '../components/auth/api/AuthProvider.jsx';
+import ElMobile from '../components/utilities/ElMobile.jsx';
 
 export default function PageHome() {
 
@@ -20,6 +21,7 @@ export default function PageHome() {
       <Access>
         <label>Home, {user()}</label>
       </Access>
+      <ElMobile/>
     </div>
   )
 }

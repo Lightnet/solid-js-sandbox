@@ -63,7 +63,7 @@ export default function MIPanelView(props){
   <Comms/>
   
   <div>
-    <Modal isopen={isHomeBase} onClose={onCloseHomeBase} enabledrag={true} width={400} height={200}>
+    <Modal isopen={isHomeBase} onClose={onCloseHomeBase} enabledrag={true} width={800} height={400} center={false} x={0} y={40}>
       <HomeBase/>
     </Modal>
     <Modal isopen={isBaseConstruction} onClose={onCloseBaseConstruction} enabledrag={true} width={400} height={200}>

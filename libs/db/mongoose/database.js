@@ -4,13 +4,20 @@
   Created by: Lightnet
 */
 
+// https://stackoverflow.com/questions/46523321/mongoerror-connect-econnrefused-127-0-0-127017
+
 import mongoose from 'mongoose';
 
 import { config } from 'dotenv';
 config();
 
-const DATABASE_URL = process.env.DATABASE_URL || 'mongodb://localhost/test';
+//const DATABASE_URL = process.env.DATABASE_URL || 'mongodb://localhost/solidtest';
+//const DATABASE_URL = 'mongodb://localhost:27017/solidtest';
+const DATABASE_URL = 'mongodb://0.0.0.0:27017/solidtest';
+//const DATABASE_URL = 'mongodb://localhost:27017';
 console.log(DATABASE_URL)
+
+mongoose.set("strictQuery", false);
 
 function mainTest(){
   
@@ -36,7 +43,9 @@ function mainTest(){
 }
 
 export async function setupDatabase(){
+  //mongoose.set('strictQuery', false);
   await mongoose.connect(DATABASE_URL);
+
   //mainTest()
   /*
   const MyModel = mongoose.model('BlogPost');

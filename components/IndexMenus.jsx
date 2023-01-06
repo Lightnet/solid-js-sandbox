@@ -33,6 +33,7 @@ const IndexMenus = () => {
     "/publicchat",
     "/mobilebase",
     "/todolist",
+    "/examples",
     "/uicss",
     "/threecss"
   ];
@@ -58,6 +59,7 @@ const IndexMenus = () => {
         <Link class="btnLink" href="/mobilebase">Mobile Base</Link><span> | </span>
         <Link class="btnLink" href="/threecss">threecss</Link><span> | </span>
         <Link class="btnLink" href="/uicss">uicss</Link><span> | </span>
+        <Link class="btnLink" href="/admin">admin</Link><span> | </span>
         <ToggleTheme />
         </div>)
     }else{

@@ -50,7 +50,9 @@ function Modal(props){
   })
 
   onMount(()=>{
-
+    if(props.x || props.y ){
+      setTranslate({x:props.x,y:props.y})
+    }
   })
 
   onCleanup(()=>{

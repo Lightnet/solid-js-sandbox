@@ -150,6 +150,10 @@ router.get('/signout', async (req, res) => {
   res.send(JSON.stringify({api:'ERROR'}))
 })
 
+
+
+
+/*
 router.post('/db', async (req, res) => {
   res.set('Content-Type', 'application/json');
   console.log("DB test...")
@@ -157,10 +161,8 @@ router.post('/db', async (req, res) => {
     alias:"test",
     hash:"testpass",
   });
-
   await newUser.save();
-
   res.send(JSON.stringify({api:'ERROR'}))
 })
-
+*/
 export default router;

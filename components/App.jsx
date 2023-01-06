@@ -36,6 +36,9 @@ const PageMobileBase = lazy(() => import('../pages/mobilebase'))
 const PageThreejs = lazy(() => import('../pages/threejs'))
 const PageThreeCSS = lazy(() => import('../pages/threecss'))
 const PageUICSS = lazy(() => import('../pages/uicss'))
+const PageExamples = lazy(() => import('../pages/examples'))
+const PageAdmin = lazy(() => import('../pages/admin'))
+const PageFlipTime = lazy(() => import('../pages/fliptime'))
 
 //const HelloApp = () => {
 //  return (<label></label>)
@@ -63,6 +66,9 @@ const RouterApp = () => {
       <Route path="/threejs" component={PageThreejs}/>
       <Route path="/threecss" component={PageThreeCSS}/>
       <Route path="/uicss" component={PageUICSS}/>
+      <Route path="/examples" component={PageExamples}/>
+      <Route path="/admin" component={PageAdmin}/>
+      <Route path="/fliptime" component={PageFlipTime}/>
     </Routes>
   </Router>);
 };

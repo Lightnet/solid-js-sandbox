@@ -32,7 +32,10 @@ export default function CssObject3D(props) {
   });
 
   onCleanup(()=>{
-    
+    if(domObject){
+      console.log("remove cssobject...")
+      scene().remove( domObject );
+    }
   })
 
   return (

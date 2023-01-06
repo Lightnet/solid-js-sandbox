@@ -51,4 +51,12 @@ VITE_SUPABASE_URL=https://xxxxxx.supabase.co
 VITE_SUPABASE_ANON_KEY=xxxx.xxxx.xxxx
 SECRET="01234567890123456789012345678901"
 DATABASE_URL=mongodb://localhost/solidtest
+
+SMTP_HOST=""
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_AUTH_USER=""
+SMTP_AUTH_PASS=""
 ```
+
+https://nodemailer.com/about/

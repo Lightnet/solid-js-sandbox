@@ -22,7 +22,7 @@ export default function BuildExtractor(props){
   const [timer, setTimer] = createSignal(null)
 
   function clickAction(){
-    console.log("click...")
+    //console.log("click...")
     if(id()){
       console.log("found id:",id())
       useAxois({
@@ -86,11 +86,11 @@ export default function BuildExtractor(props){
     let buildtime = time();
     if(buildtime > 300){
 
-      console.log("build time:", buildtime)
+      //console.log("build time:", buildtime)
       let currentTime = new Date().getTime();
-      console.log("currentTime: ",currentTime)
+      //console.log("currentTime: ",currentTime)
       let remainTime = buildtime - currentTime;
-      console.log("remainTime: ", remainTime)
+      //console.log("remainTime: ", remainTime)
       //let h = remainTime / 
 
       let hours = Math.floor((remainTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

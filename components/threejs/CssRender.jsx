@@ -4,6 +4,7 @@
   Created by: Lightnet
 */
 // https://jsfiddle.net/trusktr/jc6j1wmf/
+// https://github.com/mrdoob/three.js/blob/master/examples/jsm/renderers/CSS3DRenderer.js
 
 import { createEffect, createSignal, onCleanup, onMount } from 'solid-js';
 import { OrbitControls } from 'three/examples/jsm/controls/orbitcontrols';
