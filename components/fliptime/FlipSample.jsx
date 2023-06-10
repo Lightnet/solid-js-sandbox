@@ -6,39 +6,17 @@
 
 // https://www.w3schools.com/howto/howto_css_flip_card.asp
 // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_flip_card
-// https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d
 
 import { createSignal } from 'solid-js';
 
-import './flipdown.css';
+import './flipsample.css';
 
 export default function FlipTime(){
 
-  const [flip, setFlip] = createSignal('')
-
-  const btnFlip=()=>{
-    setFlip('flip-Forward')
-  }
-
-  const btnReset=()=>{
-    setFlip('')
-  }
+  const [count, setCount] = createSignal(0)
 
   return (<>
-    <div class={''}>
-      <div class="filp-container">
-        <div class={'flip-front ' + flip() + ' '}>
-          <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;"/>
-        </div>
-
-      </div>
-    </div>
-    <button onClick={btnFlip}> Flip </button>
-    <button onClick={btnReset}> Reset </button>
-  </>)
-};
-/*
-<div class="flip-card">
+    <div class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;"/>
@@ -50,5 +28,5 @@ export default function FlipTime(){
         </div>
       </div>
     </div>
-
-*/
+  </>)
+};

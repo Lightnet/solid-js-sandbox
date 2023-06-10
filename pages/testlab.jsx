@@ -12,14 +12,18 @@
 import { createMemo, createSignal } from "solid-js";
 import ModalTest from "../components/modal/ModalTest"
 import NotifyTest from "../components/notify/NotifyTest"
+import TestUI from "../components/theme/TestUI";
 
 export default function PageTestLab() {
 
   return (<>
     <div>
       <label> Test Lab </label>
+      
       <NotifyTest />
       <ModalTest/>
+
+      <TestUI/>
     </div>
   </>)
 }

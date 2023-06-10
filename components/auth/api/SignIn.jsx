@@ -53,11 +53,15 @@ export default function SignIn() {
     navigate("/signup", { replace: true })
   }
 
+  const btnRecovery = ()=>{
+    navigate("/recovery", { replace: true })
+  }
+
   return (<div>  
     <table>
       <thead>
-            <tr>
-              <td colSpan="">
+            <tr class="wPanel_header">
+              <td colSpan="2" >
                 <label>Sign In</label>
               </td>
             </tr>
@@ -89,11 +93,13 @@ export default function SignIn() {
           </tr>
           <tr>
             <td colSpan="2">
-              <button onClick={btnSignUp}> Sign Up </button>
-              <span style="float:right;">
-                
-                <button onClick={btnLogin}> Login </button>
-              </span>
+              <button onClick={btnLogin} class="wbtn wButton" style="width:100%"> Login </button>
+            </td>
+          </tr>
+          <tr>
+          <td colSpan="2">
+              <button class="wbtn " onClick={btnSignUp}> Sign Up </button>
+              <button class="wbtn " onClick={btnSignUp}> Recovery </button>
             </td>
           </tr>
         </tbody>

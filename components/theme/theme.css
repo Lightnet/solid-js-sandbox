@@ -8,6 +8,23 @@ html[data-theme='light'] {
   --background-color: rgb(212, 212, 212);
   --text-color: #121416d8;
   --link-color: #543fd7;
+
+  --btnprimary-color: #00aaff;
+  --btnsecondary-color: #00ff00;
+  --btntertiary-color: #e6e600;
+
+  --hprimary-color: #66ccff;
+  --hsecondary-color: #99ff99;
+  --htertiary-color: #ffff66;
+
+  --aprimary-color: #e6f2ff;
+  --asecondary-color: #e6ffe6;
+  --atertiary-color: #ffffe6;
+
+  --panel-header:gray;
+  --panel-content:gray;
+  --panel-footer:gray;
+  
 }
 
 html[data-theme='dark'] {
@@ -53,6 +70,71 @@ body {
 .modal{
   pointer-events: auto;
 }
+*/
+
+/* Button / Panel */
+
+.wInputCB{
+  cursor: pointer;
+  background-color: #2196F3;
+}
+
+.wInputCB:checked{
+  background-color: #2196F3;
+}
+
+.wPanel_header{
+  background-color: lightskyblue;
+}
+
+.wbtn{
+  border-width: 0px;
+  background-color: var(--btnprimary-color);
+}
+
+.wbtn:hover{
+  background-color:var(--hprimary-color);;
+}
+
+.wbtn:active{
+  background-color:var(--aprimary-color);;
+}
+
+.wbtnsecndary{
+  border-width: 0px;
+  background-color: var(--btnsecondary-color);
+}
+
+.wbtnsecndary:hover{
+  background-color: var(--hsecondary-color);
+}
+
+.wbtnsecndary:active{
+  background-color: var(--asecondary-color);
+}
+
+.wbtntertiary{
+  border-width: 0px;
+  background-color: var(--btntertiary-color);
+}
+
+.wbtntertiary:hover{
+  background-color: var(--htertiary-color);
+}
+
+.wbtntertiary:active{
+  background-color: var(--atertiary-color);
+}
+
+
+
+
+
+
+
+/*
+ Modal Dialog
+
 */
 .modal_header button{
   background-color: aliceblue;

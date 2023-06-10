@@ -53,13 +53,7 @@ const IndexMenus = () => {
         <Link class="btnLink" href="/about">About</Link><span> | </span>
         <Link class="btnLink" href="/blog">Blog</Link><span> | </span>
         <Link class="btnLink" href="/account">Account</Link><span> | </span>
-        <Link class="btnLink" href="/testlab">Test Lab</Link><span> | </span>
-        <Link class="btnLink" href="/publicchat">Chat</Link><span> | </span>
-        <Link class="btnLink" href="/todolist">To Do List</Link><span> | </span>
-        <Link class="btnLink" href="/mobilebase">Mobile Base</Link><span> | </span>
-        <Link class="btnLink" href="/threecss">threecss</Link><span> | </span>
-        <Link class="btnLink" href="/uicss">uicss</Link><span> | </span>
-        <Link class="btnLink" href="/admin">admin</Link><span> | </span>
+        <Link class="btnLink" href="/examples">Examples</Link><span> | </span>
         <ToggleTheme />
         </div>)
     }else{
@@ -76,3 +70,14 @@ const IndexMenus = () => {
 }
 
 export default IndexMenus;
+/*
+<Link class="btnLink" href="/testlab">Test Lab</Link><span> | </span>
+        
+        <Link class="btnLink" href="/publicchat">Chat</Link><span> | </span>
+        <Link class="btnLink" href="/todolist">To Do List</Link><span> | </span>
+        <Link class="btnLink" href="/mobilebase">Mobile Base</Link><span> | </span>
+        <Link class="btnLink" href="/threecss">threecss</Link><span> | </span>
+        <Link class="btnLink" href="/uicss">uicss</Link><span> | </span>
+        <Link class="btnLink" href="/admin">admin</Link><span> | </span>
+
+*/
